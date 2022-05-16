@@ -1,6 +1,6 @@
 import { Command } from "@oclif/core";
 import chalk from "chalk";
-import Conf from "conf/dist/source";
+import Conf from "conf";
 import inquirer from "inquirer";
 
 export default class Config extends Command {
@@ -9,7 +9,7 @@ export default class Config extends Command {
   async run(): Promise<void> {
     const userConf = new Conf({ projectSuffix: "cli" });
 
-    this.log(chalk.cyan("⚙️ Let us configure the CLI"));
+    this.log("⚙️ Let us configure the CLI");
 
     inquirer
       .prompt([

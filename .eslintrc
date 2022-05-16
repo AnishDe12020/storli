@@ -6,6 +6,7 @@
     "object-curly-spacing": [2, "always"],
     "comma-dangle": "off",
     "indent": [2, 2],
-    "no-implicit-coercion": "off"
+    "no-implicit-coercion": "off",
+    "no-await-in-loop": "off"
   }
 }

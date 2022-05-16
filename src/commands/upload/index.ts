@@ -1,12 +1,13 @@
-import { Command, Flags } from "@oclif/core";
+import { Flags } from "@oclif/core";
 import { ArgInput } from "@oclif/core/lib/interfaces";
 import chalk from "chalk";
 import Conf from "conf";
 import logSymbols from "log-symbols";
 import ora from "ora";
 import { Filelike, getFilesFromPath, Web3Storage } from "web3.storage";
+import AuthenticatedCommand from "../../lib/authenticated-command";
 
-export default class Upload extends Command {
+export default class Upload extends AuthenticatedCommand {
   static description = "Upload a file to IPFS";
 
   static args?: ArgInput | undefined = [
@@ -32,21 +33,10 @@ export default class Upload extends Command {
   };
 
   async run(): Promise<void> {
-    const userConf = new Conf({ projectSuffix: "cli" });
-
-    if (!userConf.get("web3StorageAPIToken")) {
-      this.error(
-        chalk.red(
-          "Please set a web3.storage API token. Run `storli config` to do so."
-        )
-      );
-    }
-
-    const web3StorageAPIToken = userConf.get("web3StorageAPIToken");
-
     const { args, flags } = await this.parse(Upload);
     const { filePath } = args;
     const { name, dontWrapCID } = flags;
+    const client = this.client;
 
     if (name) {
       console.log(logSymbols.info, "Uploading file(s) with name:", name);
@@ -60,8 +50,6 @@ export default class Upload extends Command {
     }
 
     const files = await getFilesFromPath(filePath);
-
-    const client = new Web3Storage({ token: web3StorageAPIToken as string });
 
     const spinner = ora("Uploading...").start();
 

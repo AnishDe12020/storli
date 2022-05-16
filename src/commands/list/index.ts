@@ -1,32 +1,16 @@
-import { Command } from "@oclif/core";
-import chalk from "chalk";
 import Table from "cli-table";
-import Conf from "conf/dist/source";
 import ora from "ora";
-import { Web3Storage } from "web3.storage";
+import AuthenticatedCommand from "../../lib/authenticated-command";
 
-export default class List extends Command {
+export default class List extends AuthenticatedCommand {
   static description: string | undefined = "List all files uploaded to IPFS";
 
   async run(): Promise<void> {
-    const userConf = new Conf({ projectSuffix: "cli" });
-
-    if (!userConf.get("web3StorageAPIToken")) {
-      this.error(
-        chalk.red(
-          "Please set a web3.storage API token. Run `storli config` to do so."
-        )
-      );
-    }
-
-    const web3StorageAPIToken = userConf.get("web3StorageAPIToken");
-
-    const client = new Web3Storage({ token: web3StorageAPIToken as string });
-
     const spinner = ora("Retrieving...").start();
 
     try {
       const uploads = [];
+      const client = this.client;
       for await (const upload of client.list()) {
         uploads.push(upload);
       }

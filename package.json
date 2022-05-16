@@ -26,6 +26,7 @@
     "conf": "^10.1.2",
     "fs-extra": "^10.1.0",
     "inquirer": "^8.2.4",
+    "log-symbols": "4.1.0",
     "ora": "5.4.1",
     "web3.storage": "^4.2.0"
   },

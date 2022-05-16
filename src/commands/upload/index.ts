@@ -2,6 +2,7 @@ import { Command, Flags } from "@oclif/core";
 import { ArgInput } from "@oclif/core/lib/interfaces";
 import chalk from "chalk";
 import Conf from "conf";
+import logSymbols from "log-symbols";
 import ora from "ora";
 import { Filelike, getFilesFromPath, Web3Storage } from "web3.storage";
 
@@ -46,6 +47,18 @@ export default class Upload extends Command {
     const { args, flags } = await this.parse(Upload);
     const { filePath } = args;
     const { name, dontWrapCID } = flags;
+
+    if (name) {
+      console.log(logSymbols.info, "Uploading file(s) with name:", name);
+    }
+
+    if (dontWrapCID) {
+      console.log(
+        logSymbols.info,
+        "Uploading file(s) without wrapping then with the CID"
+      );
+    }
+
     const files = await getFilesFromPath(filePath);
 
     const client = new Web3Storage({ token: web3StorageAPIToken as string });
@@ -59,7 +72,7 @@ export default class Upload extends Command {
         maxRetries: 3,
       });
 
-      spinner.succeed(chalk.green(`Uploaded files with CID: ${rootCID}`));
+      spinner.succeed(`Uploaded files with CID: ${rootCID}`);
     } catch (error) {
       spinner.fail("Failed to upload files to IPFS :(");
       console.log(chalk.red(error));

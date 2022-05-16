@@ -4,6 +4,7 @@
     "quotes": [2, "double"],
     "semi": [2, "always"],
     "object-curly-spacing": [2, "always"],
-    "comma-dangle": "off"
+    "comma-dangle": "off",
+    "indent": [2, 2]
   }
 }

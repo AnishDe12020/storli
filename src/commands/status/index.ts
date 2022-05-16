@@ -7,7 +7,7 @@ import {
   getStorageProviders,
   parseDate,
   parseSize,
-} from "../../utils/status";
+} from "../../utils/parsers";
 
 export default class Status extends AuthenticatedCommand {
   static description: string | undefined =

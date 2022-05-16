@@ -35,7 +35,7 @@ export const parseSize = (size: number): string => {
   return `${size.toFixed(2)} ${units[i]}`;
 };
 
-export const parseDate = (date: string): string => {
+export const parseDate = (date: string | number): string => {
   const dateObj = new Date(date);
   return dateObj.toString();
 };

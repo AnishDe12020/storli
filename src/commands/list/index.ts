@@ -62,8 +62,8 @@ export default class List extends AuthenticatedCommand {
           uploadsTable.push([
             upload.name,
             upload.cid,
-            upload.dagSize,
-            upload.created,
+            parseSize(upload.dagSize),
+            parseDate(upload.created),
           ]);
         }
 

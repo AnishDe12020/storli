@@ -1,10 +1,9 @@
 import { Flags } from "@oclif/core";
 import { ArgInput } from "@oclif/core/lib/interfaces";
 import chalk from "chalk";
-import Conf from "conf";
 import logSymbols from "log-symbols";
 import ora from "ora";
-import { Filelike, getFilesFromPath, Web3Storage } from "web3.storage";
+import { Filelike, getFilesFromPath } from "web3.storage";
 import AuthenticatedCommand from "../../lib/authenticated-command";
 
 export default class Upload extends AuthenticatedCommand {
@@ -49,9 +48,9 @@ export default class Upload extends AuthenticatedCommand {
       );
     }
 
-    const files = await getFilesFromPath(filePath);
-
     const spinner = ora("Uploading...").start();
+
+    const files = await getFilesFromPath(filePath);
 
     try {
       const rootCID = await client.put(files as Iterable<Filelike>, {

@@ -5,6 +5,7 @@
     "semi": [2, "always"],
     "object-curly-spacing": [2, "always"],
     "comma-dangle": "off",
-    "indent": [2, 2]
+    "indent": [2, 2],
+    "no-implicit-coercion": "off"
   }
 }

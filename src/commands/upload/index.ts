@@ -7,12 +7,12 @@ import { Filelike, getFilesFromPath } from "web3.storage";
 import AuthenticatedCommand from "../../lib/authenticated-command";
 
 export default class Upload extends AuthenticatedCommand {
-  static description = "Upload a file to IPFS";
+  static description = "Upload a file or directory to IPFS";
 
   static args?: ArgInput | undefined = [
     {
       name: "filePath",
-      description: "Filepath of the file to upload (can also be a directory)",
+      description: "Filepath of the file or directory to upload",
       required: true,
     },
   ];
@@ -21,12 +21,12 @@ export default class Upload extends AuthenticatedCommand {
     name: Flags.string({
       char: "n",
       description:
-        "Name you want to give to the upload (this is just for the purpose of seeing the upload in web3.storage, it is not stored alongside the data in IPFS)",
+        "Name you want to give to the upload (defaults to Upload at <date and time>)",
     }),
     dontWrapCID: Flags.boolean({
       char: "d",
       description:
-        "Don't wrap the file/dir with the CID in IPFS (by default, it is wrapped)",
+        "Don't wrap the file/dir with the CID in IPFS (by default, it is wrapped, recommended to be used when uploading a directory)",
       default: false,
     }),
   };
@@ -44,7 +44,7 @@ export default class Upload extends AuthenticatedCommand {
     if (dontWrapCID) {
       console.log(
         logSymbols.info,
-        "Uploading file(s) without wrapping then with the CID"
+        "Uploading file(s) without wrapping them with the CID"
       );
     }
 
@@ -59,9 +59,9 @@ export default class Upload extends AuthenticatedCommand {
         maxRetries: 3,
       });
 
-      spinner.succeed(`Uploaded files with CID: ${rootCID}`);
+      spinner.succeed(`Uploaded files with CID: ${rootCID} 🚀`);
     } catch (error) {
-      spinner.fail("Failed to upload files to IPFS :(");
+      spinner.fail("Failed to upload files to IPFS");
       console.log(chalk.red(error));
     }
   }

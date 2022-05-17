@@ -10,8 +10,7 @@ import {
 } from "../../utils/parsers";
 
 export default class Status extends AuthenticatedCommand {
-  static description: string | undefined =
-    "See the status of an upload by passing in its CID";
+  static description: string | undefined = "Check the status of an upload";
 
   static args?: ArgInput | undefined = [
     {
@@ -26,17 +25,17 @@ export default class Status extends AuthenticatedCommand {
     const { cid } = args;
     const client = this.client;
 
-    const spinner = ora("Retrieving status...").start();
+    const spinner = ora("Fetching status...").start();
 
     try {
       const status = await client.status(cid);
 
       if (!status) {
-        spinner.fail("No status found");
+        spinner.fail("No status for the given CID found");
         return;
       }
 
-      spinner.succeed("Status retrieved");
+      spinner.succeed("Fetched status");
 
       this.log(chalk.cyan("Created At:"), parseDate(status.created));
       this.log(chalk.cyan("Size:"), parseSize(status.dagSize));
@@ -46,7 +45,7 @@ export default class Status extends AuthenticatedCommand {
         getStorageProviders(status).join(", ")
       );
     } catch (error) {
-      spinner.fail("Failed to retrieve status");
+      spinner.fail("Failed to fetch status");
       this.error(chalk.red(error));
     }
   }

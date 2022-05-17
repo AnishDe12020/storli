@@ -9,13 +9,13 @@ import {
 } from "../../utils/parsers";
 
 export default class List extends AuthenticatedCommand {
-  static description: string | undefined = "List all files uploaded to IPFS";
+  static description: string | undefined = "List all uploads made by you";
 
   static aliases: string[] = ["ls"];
 
   async run(): Promise<void> {
     const client = this.client;
-    const spinner = ora("Retrieving...").start();
+    const spinner = ora("Fetching uploads...").start();
 
     try {
       const uploads = [];
@@ -23,7 +23,7 @@ export default class List extends AuthenticatedCommand {
         uploads.push(upload);
       }
 
-      spinner.succeed("Retrieved");
+      spinner.succeed("Fetched uploads");
 
       const uploadsTable = new Table({
         head: [
@@ -49,7 +49,7 @@ export default class List extends AuthenticatedCommand {
 
       this.log(uploadsTable.toString());
     } catch (error) {
-      spinner.fail("Failed");
+      spinner.fail("Failed to fetch uploads");
       console.log(error);
     }
   }

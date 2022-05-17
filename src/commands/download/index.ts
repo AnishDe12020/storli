@@ -5,7 +5,7 @@ import ora from "ora";
 import AuthenticatedCommand from "../../lib/authenticated-command";
 
 export default class Download extends AuthenticatedCommand {
-  static description = "Download files in an upload";
+  static description = "Download files from an upload";
 
   static args?: ArgInput | undefined = [
     {

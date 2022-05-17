@@ -1,6 +1,6 @@
 {
   "name": "storli",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "CLI to help you upload files to IPFS",
   "author": "AnishDe12020",
   "bin": {

@@ -60,6 +60,7 @@ export default class Upload extends AuthenticatedCommand {
       });
 
       spinner.succeed(`Uploaded files with CID: ${rootCID} 🚀`);
+      this.log("Link:", chalk.blue(`https://dweb.link/ipfs/${rootCID}`));
     } catch (error) {
       spinner.fail("Failed to upload files to IPFS");
       console.log(chalk.red(error));

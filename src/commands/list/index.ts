@@ -9,69 +9,35 @@ export default class List extends AuthenticatedCommand {
 
   static aliases: string[] = ["ls"];
 
-  static args?: ArgInput | undefined = [
-    {
-      name: "cid",
-      required: false,
-      description: "CID of the upload to list",
-    },
-  ];
-
   async run(): Promise<void> {
-    const { args } = await this.parse(List);
     const client = this.client;
+    const spinner = ora("Retrieving...").start();
 
-    if (args.cid) {
-      const { cid } = args;
-      const spinner = ora("Fetching upload").start();
-      const upload = await client.get(cid);
-      if (!upload) {
-        spinner.fail("Upload not found");
-        return;
+    try {
+      const uploads = [];
+      for await (const upload of client.list()) {
+        uploads.push(upload);
       }
 
-      spinner.text = "Fetching files";
-      const files = await upload.files();
-      spinner.succeed("Fetched files successfully");
-      const filesTable = new Table({
-        head: ["Name", "Size", "Last Modified", "CID"],
+      spinner.succeed("Retrieved");
+
+      const uploadsTable = new Table({
+        head: ["Name", "CID", "Size", "Created At"],
       });
 
-      for (const file of files) {
-        const { name, size, lastModified, cid } = file;
-        filesTable.push([name, parseSize(size), parseDate(lastModified), cid]);
+      for (const upload of uploads) {
+        uploadsTable.push([
+          upload.name,
+          upload.cid,
+          parseSize(upload.dagSize),
+          parseDate(upload.created),
+        ]);
       }
 
-      this.log(filesTable.toString());
-    } else {
-      const spinner = ora("Retrieving...").start();
-
-      try {
-        const uploads = [];
-        for await (const upload of client.list()) {
-          uploads.push(upload);
-        }
-
-        spinner.succeed("Retrieved");
-
-        const uploadsTable = new Table({
-          head: ["Name", "CID", "Size", "Created At"],
-        });
-
-        for (const upload of uploads) {
-          uploadsTable.push([
-            upload.name,
-            upload.cid,
-            parseSize(upload.dagSize),
-            parseDate(upload.created),
-          ]);
-        }
-
-        this.log(uploadsTable.toString());
-      } catch (error) {
-        spinner.fail("Failed");
-        console.log(error);
-      }
+      this.log(uploadsTable.toString());
+    } catch (error) {
+      spinner.fail("Failed");
+      console.log(error);
     }
   }
 }

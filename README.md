@@ -4,20 +4,21 @@ A CLI to upload files to IPFS and interact with them using
 [wbe3.storage](https://web3.storage)
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
-[![Version](https://img.shields.io/npm/v/oclif-hello-world.svg)](https://npmjs.org/package/oclif-hello-world)
-[![CircleCI](https://circleci.com/gh/oclif/hello-world/tree/main.svg?style=shield)](https://circleci.com/gh/oclif/hello-world/tree/main)
-[![Downloads/week](https://img.shields.io/npm/dw/oclif-hello-world.svg)](https://npmjs.org/package/oclif-hello-world)
-[![License](https://img.shields.io/npm/l/oclif-hello-world.svg)](https://github.com/oclif/hello-world/blob/main/package.json)
+[![Version](https://img.shields.io/npm/v/storli.svg)](https://npmjs.org/package/oclif-hello-world)
+[![Downloads/week](https://img.shields.io/npm/dw/storli.svg)](https://npmjs.org/package/oclif-hello-world)
+[![License](https://img.shields.io/npm/l/storli.svg)](https://github.com/oclif/hello-world/blob/main/package.json)
 
 <!-- toc -->
-* [Storli](#storli)
-* [Usage](#usage)
-* [Commands](#commands)
+
+- [Storli](#storli)
+- [Usage](#usage)
+- [Commands](#commands)
 <!-- tocstop -->
 
 # Usage
 
 <!-- usage -->
+
 ```sh-session
 $ npm install -g storli
 $ storli COMMAND
@@ -29,18 +30,20 @@ USAGE
   $ storli COMMAND
 ...
 ```
+
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
-* [`storli config`](#storli-config)
-* [`storli download CID`](#storli-download-cid)
-* [`storli help [COMMAND]`](#storli-help-command)
-* [`storli list`](#storli-list)
-* [`storli ls`](#storli-ls)
-* [`storli status CID`](#storli-status-cid)
-* [`storli upload FILEPATH`](#storli-upload-filepath)
+
+- [`storli config`](#storli-config)
+- [`storli download CID`](#storli-download-cid)
+- [`storli help [COMMAND]`](#storli-help-command)
+- [`storli list`](#storli-list)
+- [`storli ls`](#storli-ls)
+- [`storli status CID`](#storli-status-cid)
+- [`storli upload FILEPATH`](#storli-upload-filepath)
 
 ## `storli config`
 
@@ -163,4 +166,5 @@ DESCRIPTION
 ```
 
 _See code: [dist/commands/upload/index.ts](https://github.com/AnishDe12020/storli/blob/v1.0.0/dist/commands/upload/index.ts)_
+
 <!-- commandsstop -->

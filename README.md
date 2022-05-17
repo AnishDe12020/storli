@@ -10,15 +10,14 @@ A CLI to upload files to IPFS and interact with them using
 [![License](https://img.shields.io/npm/l/oclif-hello-world.svg)](https://github.com/oclif/hello-world/blob/main/package.json)
 
 <!-- toc -->
-
-- [Usage](#usage)
-- [Commands](#commands)
+* [Storli](#storli)
+* [Usage](#usage)
+* [Commands](#commands)
 <!-- tocstop -->
 
 # Usage
 
 <!-- usage -->
-
 ```sh-session
 $ npm install -g storli
 $ storli COMMAND
@@ -30,20 +29,18 @@ USAGE
   $ storli COMMAND
 ...
 ```
-
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
-
-- [`storli config`](#storli-config)
-- [`storli download CID`](#storli-download-cid)
-- [`storli help [COMMAND]`](#storli-help-command)
-- [`storli list`](#storli-list)
-- [`storli ls`](#storli-ls)
-- [`storli status CID`](#storli-status-cid)
-- [`storli upload FILEPATH`](#storli-upload-filepath)
+* [`storli config`](#storli-config)
+* [`storli download CID`](#storli-download-cid)
+* [`storli help [COMMAND]`](#storli-help-command)
+* [`storli list`](#storli-list)
+* [`storli ls`](#storli-ls)
+* [`storli status CID`](#storli-status-cid)
+* [`storli upload FILEPATH`](#storli-upload-filepath)
 
 ## `storli config`
 
@@ -166,5 +163,4 @@ DESCRIPTION
 ```
 
 _See code: [dist/commands/upload/index.ts](https://github.com/AnishDe12020/storli/blob/v0.0.0/dist/commands/upload/index.ts)_
-
 <!-- commandsstop -->

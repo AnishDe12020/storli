@@ -4,8 +4,6 @@ import { outputFile } from "fs-extra";
 import ora from "ora";
 import AuthenticatedCommand from "../../lib/authenticated-command";
 
-const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
-
 export default class Download extends AuthenticatedCommand {
   static description = "Download files in an upload";
 
@@ -22,12 +20,17 @@ export default class Download extends AuthenticatedCommand {
     const { cid } = args;
     const client = this.client;
 
-    const spinner = ora("Retrieving files...").start();
+    const spinner = ora("Downloading files...").start();
 
     try {
       const upload = await client.get(cid);
       if (!upload) {
-        spinner.fail("No upload found");
+        spinner.fail("No upload found with the given CID");
+        return;
+      }
+
+      if (!upload.ok) {
+        spinner.fail("No upload found with the given CID");
         return;
       }
 
@@ -38,14 +41,20 @@ export default class Download extends AuthenticatedCommand {
         return;
       }
 
-      spinner.succeed(`Found ${files.length} files`);
+      spinner.succeed(
+        `Found ${files.length} ${files.length === 1 ? "file" : "files"}`
+      );
       await Promise.all(
         files.map(async file => {
-          this.log(chalk.green(`Downloading ${file.name}`));
-          const buffer = Buffer.from(await file.arrayBuffer());
-          await sleep(2000);
-          const data = await outputFile(cid + "/" + file.name, buffer);
-          this.log(chalk.green(`Downloaded ${file.name}`));
+          const spinner = ora(`Writing ${file.name} to disk`).start();
+          try {
+            const buffer = Buffer.from(await file.arrayBuffer());
+            await outputFile(cid + "/" + file.name, buffer);
+            spinner.succeed(`Wrote ${chalk.cyan(file.name)} to disk`);
+          } catch (error) {
+            spinner.fail(`Failed to write ${chalk.cyan(file.name)} to disk`);
+            this.error(chalk.red(error));
+          }
         })
       );
     } catch (error) {

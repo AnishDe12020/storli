@@ -9,41 +9,37 @@ A CLI to upload files to IPFS and interact with them using
 [wbeb3.storage](https://web3.storage)
 
 <!-- toc -->
-
-- [Storli](#storli)
-- [Usage](#usage)
-- [Commands](#commands)
+* [Storli](#storli)
+* [Usage](#usage)
+* [Commands](#commands)
 <!-- tocstop -->
 
 # Usage
 
 <!-- usage -->
-
 ```sh-session
 $ npm install -g storli
 $ storli COMMAND
 running command...
 $ storli (--version)
-storli/1.0.0 linux-x64 node-v16.14.2
+storli/1.0.1 linux-x64 node-v16.14.2
 $ storli --help [COMMAND]
 USAGE
   $ storli COMMAND
 ...
 ```
-
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
-
-- [`storli config`](#storli-config)
-- [`storli download CID`](#storli-download-cid)
-- [`storli help [COMMAND]`](#storli-help-command)
-- [`storli list`](#storli-list)
-- [`storli ls`](#storli-ls)
-- [`storli status CID`](#storli-status-cid)
-- [`storli upload FILEPATH`](#storli-upload-filepath)
+* [`storli config`](#storli-config)
+* [`storli download CID`](#storli-download-cid)
+* [`storli help [COMMAND]`](#storli-help-command)
+* [`storli list`](#storli-list)
+* [`storli ls`](#storli-ls)
+* [`storli status CID`](#storli-status-cid)
+* [`storli upload FILEPATH`](#storli-upload-filepath)
 
 ## `storli config`
 
@@ -57,7 +53,7 @@ DESCRIPTION
   Configure the CLI
 ```
 
-_See code: [dist/commands/config/index.ts](https://github.com/AnishDe12020/storli/blob/v1.0.0/dist/commands/config/index.ts)_
+_See code: [dist/commands/config/index.ts](https://github.com/AnishDe12020/storli/blob/v1.0.1/dist/commands/config/index.ts)_
 
 ## `storli download CID`
 
@@ -74,7 +70,7 @@ DESCRIPTION
   Download files from an upload
 ```
 
-_See code: [dist/commands/download/index.ts](https://github.com/AnishDe12020/storli/blob/v1.0.0/dist/commands/download/index.ts)_
+_See code: [dist/commands/download/index.ts](https://github.com/AnishDe12020/storli/blob/v1.0.1/dist/commands/download/index.ts)_
 
 ## `storli help [COMMAND]`
 
@@ -111,7 +107,7 @@ ALIASES
   $ storli ls
 ```
 
-_See code: [dist/commands/list/index.ts](https://github.com/AnishDe12020/storli/blob/v1.0.0/dist/commands/list/index.ts)_
+_See code: [dist/commands/list/index.ts](https://github.com/AnishDe12020/storli/blob/v1.0.1/dist/commands/list/index.ts)_
 
 ## `storli ls`
 
@@ -143,7 +139,7 @@ DESCRIPTION
   Check the status of an upload
 ```
 
-_See code: [dist/commands/status/index.ts](https://github.com/AnishDe12020/storli/blob/v1.0.0/dist/commands/status/index.ts)_
+_See code: [dist/commands/status/index.ts](https://github.com/AnishDe12020/storli/blob/v1.0.1/dist/commands/status/index.ts)_
 
 ## `storli upload FILEPATH`
 
@@ -165,6 +161,5 @@ DESCRIPTION
   Upload a file or directory to IPFS
 ```
 
-_See code: [dist/commands/upload/index.ts](https://github.com/AnishDe12020/storli/blob/v1.0.0/dist/commands/upload/index.ts)_
-
+_See code: [dist/commands/upload/index.ts](https://github.com/AnishDe12020/storli/blob/v1.0.1/dist/commands/upload/index.ts)_
 <!-- commandsstop -->

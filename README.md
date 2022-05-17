@@ -1,12 +1,18 @@
 # Storli
+<div align="center">
+<img src="https://user-images.githubusercontent.com/63192115/168748221-b0291043-1928-4de6-a99e-7803683d9177.svg" alt="logo" height="128" width="128" />
 
+  
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/storli.svg)](https://npmjs.org/package/oclif-hello-world)
 [![Downloads/week](https://img.shields.io/npm/dw/storli.svg)](https://npmjs.org/package/oclif-hello-world)
 [![License](https://img.shields.io/npm/l/storli.svg)](https://github.com/oclif/hello-world/blob/main/package.json)
 
-A CLI to upload files to IPFS and interact with them using
-[wbeb3.storage](https://web3.storage)
+**A CLI to upload files to IPFS and interact with them using [wbeb3.storage](https://web3.storage)**
+  
+  
+  </div>
+ <br />
 
 <!-- toc -->
 * [Storli](#storli)

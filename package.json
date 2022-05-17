@@ -20,7 +20,6 @@
     "@oclif/core": "^1",
     "@oclif/plugin-help": "^5",
     "@oclif/plugin-not-found": "^2.3.1",
-    "@oclif/plugin-plugins": "^2.1.0",
     "chalk": "4.1.2",
     "cli-table": "^0.3.11",
     "conf": "^10.1.2",
@@ -58,15 +57,9 @@
     "commands": "./dist/commands",
     "plugins": [
       "@oclif/plugin-help",
-      "@oclif/plugin-plugins",
       "@oclif/plugin-not-found"
     ],
-    "topicSeparator": " ",
-    "topics": {
-      "hello": {
-        "description": "Say hello to the world and others"
-      }
-    }
+    "topicSeparator": " "
   },
   "scripts": {
     "build": "shx rm -rf dist && tsc -b",

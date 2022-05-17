@@ -1,8 +1,12 @@
-import { ArgInput } from "@oclif/core/lib/interfaces";
 import Table from "cli-table";
 import ora from "ora";
 import AuthenticatedCommand from "../../lib/authenticated-command";
-import { parseDate, parseSize } from "../../utils/parsers";
+import {
+  getPinStatus,
+  getStorageProviders,
+  parseDate,
+  parseSize,
+} from "../../utils/parsers";
 
 export default class List extends AuthenticatedCommand {
   static description: string | undefined = "List all files uploaded to IPFS";
@@ -22,7 +26,14 @@ export default class List extends AuthenticatedCommand {
       spinner.succeed("Retrieved");
 
       const uploadsTable = new Table({
-        head: ["Name", "CID", "Size", "Created At"],
+        head: [
+          "Name",
+          "CID",
+          "Size",
+          "Created At",
+          "Pin Status",
+          "Storage provider ",
+        ],
       });
 
       for (const upload of uploads) {
@@ -31,6 +42,8 @@ export default class List extends AuthenticatedCommand {
           upload.cid,
           parseSize(upload.dagSize),
           parseDate(upload.created),
+          getPinStatus(upload),
+          getStorageProviders(upload),
         ]);
       }
 

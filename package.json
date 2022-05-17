@@ -75,7 +75,12 @@
   },
   "bugs": "https://github.com/AnishDe12020/storli/issues",
   "keywords": [
-    "oclif"
+    "oclif",
+    "ipfs",
+    "ipfs-storage",
+    "ipfs-storage-cli",
+    "web3.storage",
+    "web3"
   ],
   "types": "dist/index.d.ts"
 }

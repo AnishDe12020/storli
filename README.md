@@ -4,11 +4,11 @@
 
   
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
-[![Version](https://img.shields.io/npm/v/storli.svg)](https://npmjs.org/package/oclif-hello-world)
-[![Downloads/week](https://img.shields.io/npm/dw/storli.svg)](https://npmjs.org/package/oclif-hello-world)
-[![License](https://img.shields.io/npm/l/storli.svg)](https://github.com/oclif/hello-world/blob/main/package.json)
+[![Version](https://img.shields.io/npm/v/storli.svg)](https://npmjs.org/package/storli)
+[![Downloads/week](https://img.shields.io/npm/dw/storli.svg)](https://npmjs.org/package/storli)
+[![License](https://img.shields.io/npm/l/storli.svg)](https://github.com/AnishDe12020/storli/blob/main/package.json)
 
-**A CLI to upload files to IPFS and interact with them using [wbeb3.storage](https://web3.storage)**
+**A CLI to upload files to IPFS and interact with them using [web3.storage](https://web3.storage)**
   
   
   </div>

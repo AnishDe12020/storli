@@ -8,7 +8,7 @@
 [![Downloads/week](https://img.shields.io/npm/dw/storli.svg)](https://npmjs.org/package/oclif-hello-world)
 [![License](https://img.shields.io/npm/l/storli.svg)](https://github.com/oclif/hello-world/blob/main/package.json)
 
-**A CLI to upload files to IPFS and interact with them using [wbeb3.storage](https://web3.storage)**
+**A CLI to upload files to IPFS and interact with them using [web3.storage](https://web3.storage)**
   
   
   </div>

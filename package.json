@@ -27,7 +27,7 @@
     "inquirer": "^8.2.4",
     "log-symbols": "4.1.0",
     "ora": "5.4.1",
-    "web3.storage": "^4.2.0"
+    "web3.storage": "^4.3.0"
   },
   "devDependencies": {
     "@oclif/test": "^2",

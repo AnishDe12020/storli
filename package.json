@@ -22,7 +22,7 @@
     "@oclif/plugin-not-found": "^2.3.1",
     "chalk": "4.1.2",
     "cli-table": "^0.3.11",
-    "conf": "^10.1.2",
+    "conf": "^10.2.0",
     "fs-extra": "^10.1.0",
     "inquirer": "^8.2.4",
     "log-symbols": "4.1.0",

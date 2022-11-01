@@ -24,7 +24,7 @@
     "cli-table": "^0.3.11",
     "conf": "^10.2.0",
     "fs-extra": "^10.1.0",
-    "inquirer": "^8.2.4",
+    "inquirer": "^8.2.5",
     "log-symbols": "4.1.0",
     "ora": "5.4.1",
     "web3.storage": "^4.4.0"

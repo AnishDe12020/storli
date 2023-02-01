@@ -34,7 +34,7 @@
     "@types/chai": "^4",
     "@types/cli-table": "^0.3.0",
     "@types/fs-extra": "^9.0.13",
-    "@types/graceful-fs": "^4.1.5",
+    "@types/graceful-fs": "^4.1.6",
     "@types/inquirer": "^8.2.1",
     "@types/node": "^16.11.56",
     "@types/mocha": "^9.1.1",
